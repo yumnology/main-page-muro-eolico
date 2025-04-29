@@ -1,0 +1,21 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL") // uses connection pooling
+}
+
+model PropellerData {
+  id String @default(cuid()) @id
+  propeller1 Float
+  propeller2 Float
+  propeller3 Float
+  propeller4 Float
+  propeller5 Float
+  date DateTime @default(now())
+}
